@@ -1,0 +1,19 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/books.css' %}">
+{% if messages %}
+{% for msg in messages %}
+<h1 style="color: green;">{{msg}}</h1>
+{% endfor %}
+{% endif %}
+<main class="page-content">
+    {% for m in books %}
+    <div class="card"style="background-image:url({{m.pimg.url}});">
+        <div class="content">
+            <h2 class="title">{{m.bnm}}</h2>
+            <h2>{{m.prc}}</h2>
+            <p class="copy">{{m.des}}</p> 
+            <button class="btn"><a href="{% url 'cart' m.id %}">cart</a></button>
+        </div>
+    </div>
+    {% endfor %}
+</main>

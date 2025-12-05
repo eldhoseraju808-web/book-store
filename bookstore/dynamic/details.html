@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/details.css' %}">
+<h2> Table</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>full name</th>
+            <th>mobile number</th>
+            <th>email</th>
+            <th>password</th>
+            <th>confirm password</th>
+            <th>action</th>
+            <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for m in data %}
+        <tr>
+            <td>{{m.fname}}</td>
+            <td>{{m.mobile}}</td>
+            <td>{{m.email}}</td>
+            <td>{{m.pssw}}</td>
+            <td>{{m.cpssw}}</td>
+            <td><a href="/edit?idno={{m.id}}">edit</a></td>
+            <td><a href="{% url 'delete' m.id %}">delete</a></td>
+        </tr>
+        {% endfor %}
+    
+        <tbody>
+    </table>
+</div>

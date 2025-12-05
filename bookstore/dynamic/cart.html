@@ -1,0 +1,19 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/books.css' %}">
+<h2 style="color:red;">{{info}}</h2>
+<main class="page-content">
+    {% for m in cart %}
+    <div class="card"style="background-image:url({{m.products.pimg.url}});">
+        <div class="content">
+            <h2 class="title">{{m.products.bnm}}</h2>
+            <h2>price: {{m.products.prc}}</h2>
+            <p class="copy">{{m.products.des}}</p> 
+            <h3>quantity: {{m.qty}}</h3>
+            <button style="color: blue;"><a href="{% url 'cartdelete' m.id %}">remove</a></button>
+        </div>
+    </div>
+    {% endfor %}
+</main>
+<div>
+   <h4 style="color: red;">totalprice: {{total}}</h4>
+</div>
